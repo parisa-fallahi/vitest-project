@@ -1,0 +1,19 @@
+<div *ngIf="product.length > 0">
+    <ul *ngFor="let p of product">
+     
+     <li> Product Name:{{ p.price }}</li>
+      <li>Product Color:{{ p.color }}</li>
+      <li>Discount Code:{{ p.discountCode }}</li>
+  
+    </ul>
+</div>
+<div *ngIf="product?.length === 0">
+  <p>Not found</p>
+</div>
+
+
+<label>Enter your Discount Code:</label>
+<input type="text" [(ngModel)]="inputValue">
+<br>
+<label>Calculate Price:</label>
+<button (click)="calculatePrice(inputValue)">Calculate</button>
