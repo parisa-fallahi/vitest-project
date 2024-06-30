@@ -5,10 +5,11 @@ import { ProductListComponent } from './product-list.component'
 import { server } from '../mocks/server'
 import {http, HttpResponse} from 'msw'
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 
 describe('productList',()=>{
@@ -28,12 +29,18 @@ describe('productList',()=>{
   //   fixture.detectChanges();
   // });
   
-  // it('should render the list of products', async() => {
-  //   await render(ProductListComponent);
-  //   const items =  await screen.findAllByRole('listitem');
-  //   expect(items.length).toBeGreaterThan(0);
+  it('should render the list of products', async() => {
+    server.use(http.get('/products',()=>{HttpResponse.json([{
+      name:"Iphone-13",
+      price:600,
+      color:"Blue",
+      discountCode:"SAVE20"
+    },])}))
+    await render(ProductListComponent);
+    const items =  await screen.findAllByRole('paragraph');
+    expect(items.length).toBeGreaterThan(0);
     
-  // })
+  })
   it('should render no products if the products array is empty', async() => {
     server.use(http.get('/products',()=>{HttpResponse.json([])}))
     render(ProductListComponent);
@@ -44,7 +51,7 @@ describe('productList',()=>{
   })
   // it('should return an array of coupons', async() => {
   //   await render(ProductListComponent);
-  //   const result =  component.getCoupons();
+  //   const result = getCoupons();
   //   expect(result.length).toBeGreaterThan(0)
     
     

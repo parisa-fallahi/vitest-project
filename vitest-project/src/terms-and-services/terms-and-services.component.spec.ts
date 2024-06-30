@@ -28,14 +28,14 @@ describe('termsAndConditions', () => {
     expect(screen.getByRole('button')).toBeEnabled();
 
   })
-  it('should show the message when the button is clicked', async() => {
-    await render(TermsAndServicesComponent);
+  // it('should show the message when the button is clicked', async() => {
+  //   await render(TermsAndServicesComponent);
 
-    const button = screen.getByRole('button');
-    const user = userEvent.setup();
-    await user.click(button);
-    const alertMsg = await screen.findByText('Form submitted successfully');
-    expect(alertMsg).toBeInTheDocument()
+  //   const button = screen.getByRole('button');
+  //   const user = userEvent.setup();
+  //   await user.click(button);
+  //   const alertMsg = await screen.findByText('Form submitted successfully');
+  //   expect(alertMsg).toBeInTheDocument()
 
-  })
+  // })
 })

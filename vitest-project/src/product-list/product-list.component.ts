@@ -28,7 +28,7 @@ export class ProductListComponent {
   }
 
 
-  getCoupons() {
+   getCoupons() {
     return [
       { code: "SAVE20NOW", discount: 0.2 },
       { code: "DISCOUNT50OFF", discount: 0.5 },
@@ -36,8 +36,8 @@ export class ProductListComponent {
   }
 
   getUsers(): Observable<any> {
-     return this.http.get<any>('http://localhost:3002/product');
-    //return this.http.get<any>('/products');
+    return this.http.get<any>('http://localhost:3002/product');
+     
   }
 
 
