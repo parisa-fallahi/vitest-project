@@ -1,19 +1,23 @@
-<div *ngIf="product.length > 0">
-    <ul *ngFor="let p of product">
-     
-     <li> Product Name:{{ p.price }}</li>
-      <li>Product Color:{{ p.color }}</li>
-      <li>Discount Code:{{ p.discountCode }}</li>
-  
-    </ul>
+<div class="product-list" *ngIf="product.length > 0">
+  <div class="product-card" *ngFor="let p of product">
+      <div class="card-content">
+          <h3 class="product-title">{{ p.productName }}</h3>
+          <p><span class="label">Product Name:</span> <span class="value">{{ p.name }}</span></p>
+          <p><span class="label">Product Color:</span> <span class="value">{{ p.color }}</span></p>
+          <p><span class="label">Discount Price:</span> <span class="value">${{ p.price }}</span></p>
+          <p><span class="label">Product Discount Code:</span> <span class="value">{{ p.discountCode }}</span></p>
+          
+<div class="input-section">
+  <label for="discount-code">Enter your Discount Code:</label>
+  <input id="discount-code" type="text" [(ngModel)]="inputValue">
+  <br>
+  <label for="calculate-price">Calculate Price:</label>
+  <button id="calculate-price" (click)="calculatePrice(inputValue)">Calculate</button>
 </div>
-<div *ngIf="product?.length === 0">
+      </div>
+  </div>
+</div>
+<div class="not-found" *ngIf="product?.length === 0">
   <p>Not found</p>
 </div>
 
-
-<label>Enter your Discount Code:</label>
-<input type="text" [(ngModel)]="inputValue">
-<br>
-<label>Calculate Price:</label>
-<button (click)="calculatePrice(inputValue)">Calculate</button>

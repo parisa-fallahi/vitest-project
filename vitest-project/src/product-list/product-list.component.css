@@ -1,0 +1,113 @@
+    /* Product List */
+    .product-list {
+        display: flex;
+        flex-wrap: nowrap; /* Ensure items stay in a single row */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Space between cards */
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .product-card {
+        flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+        width: 300px; /* Fixed width for each card */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    }
+
+    .product-card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .product-card .label {
+        font-weight: bold;
+        color: #666;
+    }
+
+    .product-card .value {
+        color: #444;
+    }
+
+    .product-card p {
+        margin: 5px 0;
+    }
+
+    .not-found {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ffdddd;
+        border-radius: 8px;
+        background-color: #fff5f5;
+        color: #ff4444;
+        text-align: center;
+    }
+
+    .input-section {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fafafa;
+    }
+
+    .input-section label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .input-section input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: calc(100% - 24px);
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .input-section button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .input-section button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Responsive design for small screens */
+    @media (max-width: 768px) {
+        .product-list {
+            flex-direction: column; /* Switch to vertical layout on smaller screens */
+        }
+
+        .product-card {
+            width: 100%; /* Full width for each card */
+            margin-bottom: 20px; /* Space between cards */
+        }
+    }

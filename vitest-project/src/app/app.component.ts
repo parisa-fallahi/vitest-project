@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TermsAndServicesComponent } from '../terms-and-services/terms-and-services.component';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { appRoutingProviders } from './app.routes';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule, HttpClientModule,FormsModule,TermsAndServicesComponent,ProductListComponent],
+  imports: [RouterOutlet,CommonModule, HttpClientModule,FormsModule,TermsAndServicesComponent,ProductListComponent,NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
